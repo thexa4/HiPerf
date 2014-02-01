@@ -11,6 +11,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Check|Any CPU = Check|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		No Multithread|Any CPU = No Multithread|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -18,12 +19,16 @@ Global
 		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Check|Any CPU.Build.0 = Check|Any CPU
 		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.No Multithread|Any CPU.ActiveCfg = No Multithread|Any CPU
+		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.No Multithread|Any CPU.Build.0 = No Multithread|Any CPU
 		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{453F44C2-3AF7-48A2-9E4D-1AD1EEA35F07}.Check|Any CPU.ActiveCfg = Check|Any CPU
 		{453F44C2-3AF7-48A2-9E4D-1AD1EEA35F07}.Check|Any CPU.Build.0 = Check|Any CPU
 		{453F44C2-3AF7-48A2-9E4D-1AD1EEA35F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{453F44C2-3AF7-48A2-9E4D-1AD1EEA35F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{453F44C2-3AF7-48A2-9E4D-1AD1EEA35F07}.No Multithread|Any CPU.ActiveCfg = Debug|Any CPU
+		{453F44C2-3AF7-48A2-9E4D-1AD1EEA35F07}.No Multithread|Any CPU.Build.0 = Debug|Any CPU
 		{453F44C2-3AF7-48A2-9E4D-1AD1EEA35F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{453F44C2-3AF7-48A2-9E4D-1AD1EEA35F07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
