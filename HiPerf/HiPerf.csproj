@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applyable.cs" />
+    <Compile Include="ApplyManager.cs" />
     <Compile Include="LocallyManaged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

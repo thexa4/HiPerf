@@ -7,7 +7,7 @@ namespace HiPerfTest
     public class ApplyableTest
     {
         [TestMethod]
-        public void TestApply1()
+        public void Applyable_Apply1()
         {
             var o = new TestObject();
             o._globalManaged1 = 0;
@@ -18,11 +18,12 @@ namespace HiPerfTest
 
 #if CHECK_APPLY
         [TestMethod]
-        public void TestApply2()
+        public void Applyable_Apply2()
         {
             var o = new TestObject();
             o._globalManaged1 = 0;
             o.Queue(() => o._globalManaged1++);
+            o.Apply();
             o.Apply();
             o._globalManaged1++;
             try
@@ -33,6 +34,18 @@ namespace HiPerfTest
                 return;
             }
             Assert.Fail("Unauthorized access not detected!");
+        }
+
+        [TestMethod]
+        public void Applyable_Apply3()
+        {
+            var o = new TestObject();
+            o._globalManaged1 = 0;
+            o.Queue(() => o._globalManaged1++);
+            o.Apply();
+            o.Apply();
+            o._localManaged1++;
+            o.Apply();
         }
 #endif
     }

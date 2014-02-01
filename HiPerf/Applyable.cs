@@ -13,21 +13,24 @@ namespace HiPerf
     /// <summary>
     /// Enables state changes to be queued and enables checking for unauthorized writes.
     /// </summary>
-    public class Applyable
+    public abstract class Applyable
     {
         /// <summary>
         /// The queue that holds state changes to be applied
         /// </summary>
+        [LocallyManaged]
         private List<Action> _applyQueue = new List<Action>();
 
 #if CHECK_APPLY
         /// <summary>
         /// The hash this object is supposed to have right now
         /// </summary>
+        [LocallyManaged]
         private int _checkHash = 0;
         /// <summary>
         /// Wether this is the first check (first apply is ignored)
         /// </summary>
+        [LocallyManaged]
         private bool _isFirstCheckRun = true;
 #endif
 
@@ -76,26 +79,17 @@ namespace HiPerf
         private int CalculateHash()
         {
             int hash = 0;
-            var members = this.GetType().GetMembers();
-
-            foreach(var m in members)
+            for (Type t = this.GetType(); t != null; t = t.BaseType)
             {
-                if (m.CustomAttributes.Any(a => a.AttributeType == typeof(LocallyManaged)))
-                    continue;
-                
-                var propInfo = (m as PropertyInfo);
-                var fieldInfo = (m as FieldInfo);
-                if (propInfo == null && fieldInfo == null)
+                var fields = t.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+                var skipped = fields.Where(m => m.GetCustomAttribute(typeof(LocallyManaged)) == null);
+                var values = skipped.Select(m => m.GetValue(this)).Where(a => a != null);
+                var hashes = values.Select(m => m.GetHashCode());
+
+                if (!hashes.Any())
                     continue;
 
-                object val = null;
-                if (propInfo != null)
-                    val = propInfo.GetValue(this);
-                if (fieldInfo != null)
-                    val = fieldInfo.GetValue(this);
-
-                if (val != null)
-                    hash ^= val.GetHashCode();
+                hash ^= hashes.Aggregate((prev, item) => prev ^ item);
             }
 
             return hash;
@@ -103,3 +97,4 @@ namespace HiPerf
 #endif
     }
 }
+
