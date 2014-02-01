@@ -7,10 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiPerf", "HiPerf\HiPerf.csp
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Check|Any CPU = Check|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Check|Any CPU.ActiveCfg = Check|Any CPU
+		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Check|Any CPU.Build.0 = Check|Any CPU
 		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6361F13-D4B8-4E08-A878-35E20717D5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
